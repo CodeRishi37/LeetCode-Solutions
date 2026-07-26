@@ -1,12 +1,11 @@
 class Solution {
     public int maximumProduct(int[] nums) {
-        int firstMax = -1001;
-        int secondMax = -1001;
-        int thirdMax = -1001;
-        int firstMin = 1001;
-        int secondMin = 1001;
-        for(int i = 0; i<nums.length; i++){
-            int curr = nums[i];
+        int firstMax = Integer.MIN_VALUE;
+        int secondMax = Integer.MIN_VALUE;
+        int thirdMax = Integer.MIN_VALUE;
+        int firstMin = Integer.MAX_VALUE;
+        int secondMin = Integer.MAX_VALUE;
+        for(int curr:nums){
             if(curr>firstMax){
                 thirdMax = secondMax;
                 secondMax = firstMax;
@@ -26,6 +25,6 @@ class Solution {
         }
         int maxProduct = firstMax*secondMax*thirdMax;
         int minmaxProduct = firstMin*secondMin*firstMax;
-        return (maxProduct>minmaxProduct)?maxProduct:minmaxProduct;
+        return maxProduct>minmaxProduct?maxProduct:minmaxProduct;
     }
 }
